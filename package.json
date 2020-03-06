@@ -1,6 +1,6 @@
 {
   "name": "react-places-autocomplete",
-  "version": "7.2.1",
+  "version": "8.0.0",
   "description": "A React component for Google Maps Places Autocomplete",
   "main": "src/index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     "geocoder"
   ],
   "files": [
-    "dist",
+    "src",
     "README.md"
   ],
   "author": "Ken Hibino <ken.hibino7@gmail.com> (http://www.kenhibino.com/)",
