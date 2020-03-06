@@ -84,6 +84,7 @@ class PlacesAutocomplete extends React.Component {
         this.setState({
           suggestions: results.map((r, idx) => {
             return {
+              id: r.place_id,
               description: r.formatted_address,
               placeId: r.place_id,
               active: highlightFirstSuggestion && idx === 0 ? true : false,
