@@ -81,10 +81,6 @@ class PlacesAutocomplete extends React.Component {
     const { value, highlightFirstSuggestion } = this.props;
     geocodeByAddress(value).then(
       results => {
-        if(!results.length) {
-          this.clearSuggestions();
-          return;
-        }
         this.setState({
           suggestions: results.map((r, idx) => {
             return {
