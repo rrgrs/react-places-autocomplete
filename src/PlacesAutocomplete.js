@@ -79,22 +79,25 @@ class PlacesAutocomplete extends React.Component {
 
   geocoderFallback = () => {
     const { value, highlightFirstSuggestion } = this.props;
-    geocodeByAddress(value).then(results => {
-      if(!results.length) {
-        this.clearSuggestions();
-        return;
-      }
-      this.setState({
-        suggestions: results.map((r, idx) => {
-          return {
-            description: r.formatted_address,
-            placeId: r.place_id,
-            active: highlightFirstSuggestion && idx === 0 ? true : false,
-            index: idx,
-          };
-        })
-      });
-    });
+    geocodeByAddress(value).then(
+      results => {
+        if(!results.length) {
+          this.clearSuggestions();
+          return;
+        }
+        this.setState({
+          suggestions: results.map((r, idx) => {
+            return {
+              description: r.formatted_address,
+              placeId: r.place_id,
+              active: highlightFirstSuggestion && idx === 0 ? true : false,
+              index: idx,
+            };
+          })
+        });
+      },
+      error => this.props.onError(error, this.clearSuggestions),
+    );
   }
 
   autocompleteCallback = (predictions, status) => {
